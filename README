@@ -1,1 +1,7 @@
 Locky is a hibernate/suspend hook that runs based off of what it is fed in /etc/lockyrc
+
+Features:
+*Ignore certain users for screen locking
+*Choose your screenlocker
+*Customize how active sessions available for locking are displayed
+*Customize how to detect available X sessions

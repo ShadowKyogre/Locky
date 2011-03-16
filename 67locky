@@ -13,12 +13,12 @@ fi
 
 check_if_lock()
 {
-	if [ ${#ARRAY[@]} -lt 1 ];then
+	if [ ${#users_to_ignore[@]} -lt 1 ];then
 		return 1;
 	fi
-	for i in "${users_to_ignore[@]}"
+	for i in ${users_to_ignore[@]}
 	do
-		if [ "$i" -eq "$1" ] ; then
+		if [ "$i" == "$1" ]; then
 			return 0;
 		fi
 	done
@@ -32,7 +32,7 @@ if [ -z "$IS_ACTIVE" ]
 	then :
 		echo "$lock_error"
 	else
-		if [ $1 = hibernate ];then
+		if [[ $1 = hibernate ]];then
 			echo "$hibernate_lock_msg"
 		else
 			echo "$suspend_lock_msg"
@@ -48,7 +48,7 @@ if [ -z "$IS_ACTIVE" ]
 		fi
 		echo "$DISPLAYS_TO_CHECK"|tr " " "\n"|while read displays;
 		do
-			if $(su - $user -c "xdpyinfo -display ${displays}.0 2>&1 1>/dev/null"); then
+			if xdpyinfo=$(su - $user -c "xdpyinfo -display ${displays}.0 2>&1 1>/dev/null"); then
 				echo "$user : DISPLAY=$displays $lock_command"
 				su - $user -c "DISPLAY=$displays $lock_command" &
 			fi

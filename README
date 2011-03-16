@@ -5,3 +5,4 @@ Features:
 *Choose your screenlocker
 *Customize how active sessions available for locking are displayed
 *Customize how to detect available X sessions
+*Customize messages given to /var/log/pm-suspend.log

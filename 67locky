@@ -30,13 +30,13 @@ lock_me ()
 # check if xscreensaver or whatever is running. if not, just skip on.
 if [ -z "$IS_ACTIVE" ]
 	then :
+		echo "$lock_error"
+	else
 		if [ $1 = hibernate ];then
 			echo "$hibernate_lock_msg"
 		else
 			echo "$suspend_lock_msg"
 		fi
-	else
-	echo "$lock_error"
 		 # run the lock command as the user who owns xscreensaver process,
 		 # and not as root, which won't work.
 		 # Feed correct display variable for user!

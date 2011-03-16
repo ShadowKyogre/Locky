@@ -1,0 +1,47 @@
+## /etc/lockyrc ##
+
+## Enter the users who you don't want to lock the screen for.
+## Example: 
+## users_to_ignore = (bob charley guest)
+users_to_ignore = ()
+
+## Customize the message this leaves in the log when you lock before hibernate. 
+## Example:
+## hibernate_lock_message = "Locking the screen before sleeping."
+hibernate_lock_message = "Locking the screen before sleeping."
+
+## Customize the message this leaves in the log when you lock before suspend. 
+## Example:
+## suspend_lock_message = "Locking the screen before napping."
+suspend_lock_message = "Locking the screen before napping."
+
+## Customize the message this leaves in the log when you can't lock the screen. 
+## Hibernate/suspend specifics should be passed as a parameter to the script, not static.
+## Example:
+## lock_error = "Cannot lock screen. Going to ${1:-sleep} anyway..."
+lock_error = "Cannot lock screen. Going to ${1:-sleep} anyway..."
+
+## Customize how you detect if users are able to lock the screen.
+## This command should always be enclosed in "$()" and should print
+## one uid per line
+## Example:
+## IS_ACTIVE="$( ps u -C xscreensaver | awk '{print $1}'|grep -v USER )"
+IS_ACTIVE="$( ps u -C xscreensaver | awk '{print $1}'|grep -v USER )"
+
+## Customize how you detect what displays are active.
+## This command should always be enclosed in "$()".
+## Only the display identifier(s) (e.g.: :0) should be printed.
+## It does not matter if it is all on one line
+## Example:
+## DISPLAYS_TO_CHECK="$( ps u -C X | tail -n +2  | awk '{print $12}')"
+DISPLAYS_TO_CHECK="$( ps u -C X | tail -n +2  | awk '{print $12}')"
+
+## Customize the command used to lock the screen.
+lock_command = "/usr/bin/xscreensaver-command -lock"
+
+## Customize the notifications for entering a power action here:
+hibernate_msg = "I'mma sleeping!"
+suspend_msg = "I'mma napping!"
+thaw_msg = "I'm waking up!"
+resume_msg = "I'm getting out of suspend to RAM!"
+other_action_msg = "And all that was for?..."

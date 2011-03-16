@@ -1,0 +1,1 @@
+Locky is a hibernate/suspend hook that runs based off of what it is fed in /etc/lockyrc

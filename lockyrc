@@ -33,8 +33,8 @@ IS_ACTIVE="$( ps u -C xscreensaver | awk '{print $1}'|grep -v USER )"
 ## Only the display identifier(s) (e.g.: :0) should be printed.
 ## It does not matter if it is all on one line
 ## Example:
-## DISPLAYS_TO_CHECK="$( ps u -C X | tail -n +2  | awk '{print $12}')"
-DISPLAYS_TO_CHECK="$( ps u -C X | tail -n +2  | awk '{print $12}')"
+## DISPLAYS_TO_CHECK="$( ps hu -C X | awk '{print $12}')"
+DISPLAYS_TO_CHECK="$( ps hu -C X | awk '{print $12}')"
 
 ## Customize the command used to lock the screen.
 lock_command="/usr/bin/xscreensaver-command -lock"

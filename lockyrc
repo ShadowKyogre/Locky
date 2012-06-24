@@ -25,8 +25,8 @@ lock_error="Cannot lock screen. Going to ${1:-sleep} anyway..."
 ## This command should always be enclosed in "$()" and should print
 ## one uid per line
 ## Example:
-## IS_ACTIVE="$( ps u -C xscreensaver | awk '{print $1}'|grep -v USER )"
-IS_ACTIVE="$( ps u -C xscreensaver | awk '{print $1}'|grep -v USER )"
+## IS_ACTIVE="$( ps hu -C xscreensaver |grep -o '^[]*[0-9]*' )"
+IS_ACTIVE="$( ps hu -C xscreensaver |grep -o '^[]*[0-9]*' )"
 
 ## Customize how you detect what displays are active.
 ## This command should always be enclosed in "$()".

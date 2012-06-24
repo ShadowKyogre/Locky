@@ -33,8 +33,8 @@ IS_ACTIVE="$( ps hu -C xscreensaver |grep -o '^[]*[0-9]*' )"
 ## Only the display identifier(s) (e.g.: :0) should be printed.
 ## It does not matter if it is all on one line
 ## Example:
-## DISPLAYS_TO_CHECK="$( ps hu -C X | awk '{print $12}')"
-DISPLAYS_TO_CHECK="$( ps hu -C X | awk '{print $12}')"
+## DISPLAYS_TO_CHECK="$( ps h -C X | awk '{print $6}')"
+DISPLAYS_TO_CHECK="$( ps h -C X | awk '{print $6}')"
 
 ## Customize the command used to lock the screen.
 lock_command="/usr/bin/xscreensaver-command -lock"

@@ -58,20 +58,28 @@ fi
 }
 
 case $1 in
-	hibernate)
-			  echo "$hibernate_msg"
-			  lock_me
-			  ;;
-	suspend)
-			  echo "$suspend_msg"
-			  lock_me
-			  ;;
-	thaw)
-		 echo "$thaw_msg"
-		 ;;
-	resume)
-		 echo "$resume_msg"
-		 ;;
+	pre)
+		case $2 in
+				hibernate)
+					  echo "$hibernate_msg"
+					  lock_me
+					  ;;
+				suspend)
+					  echo "$suspend_msg"
+					  lock_me
+					  ;;
+		esac
+		;;
+	post)
+		case $2 in
+			hibernate)
+				 echo "$thaw_msg"
+				 ;;
+			suspend)
+				 echo "$resume_msg"
+				 ;;
+		esac
+		;;
 	*) 
 		echo "$other_action_msg"
 		 ;;

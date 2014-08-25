@@ -1,0 +1,10 @@
+[Unit]
+Description=Local system suspend actions
+Before=sleep.target
+
+[Service]
+Type=simple
+ExecStart=-/etc/pm/sleep.d/67locky suspend
+
+[Install]
+WantedBy=sleep.target

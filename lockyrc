@@ -26,7 +26,7 @@ lock_error="Cannot lock screen. Going to ${1:-sleep} anyway..."
 ## one uid per line
 ## Example:
 ## IS_ACTIVE="$( ps hu -C xscreensaver |grep -o '^[]*[0-9]*' )"
-IS_ACTIVE="$( ps hu -C xscreensaver |grep -o '^[]*[0-9]*' )"
+IS_ACTIVE="$(ps h -C xscreensaver -o uid )"
 
 ## Customize how you detect what displays are active.
 ## This command should always be enclosed in "$()".
@@ -34,7 +34,7 @@ IS_ACTIVE="$( ps hu -C xscreensaver |grep -o '^[]*[0-9]*' )"
 ## It does not matter if it is all on one line
 ## Example:
 ## DISPLAYS_TO_CHECK="$( ps h -C X | awk '{print $6}')"
-DISPLAYS_TO_CHECK="$( ps h -C X | awk '{print $6}')"
+DISPLAYS_TO_CHECK="$( ps h -C Xorg.bin|awk '{print $8}')"
 
 ## Customize the command used to lock the screen.
 lock_command="/usr/bin/xscreensaver-command -lock"
